@@ -1,23 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>새 캠핑장 등록하기</title>
-  </head>
-
-  <body>
+<% layout('layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">새 캠핑장 추가</h1>
+  <div class="col-6 offset-3">
     <form action="/campgrounds" method="POST">
-      <div>
-        <label for="title">제목</label>
-        <input type="text" id="title" name="campground[title]" />
+      <div class="mb-3">
+        <label class="form-label" for="title">이름</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="campground[title]"
+        />
       </div>
-      <div>
-        <label for="location">위치</label>
-        <input type="text" id="location" name="campground[location]" />
+      <div class="mb-3">
+        <label class="form-label" for="location">위치</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="campground[location]"
+        />
       </div>
-      <button>캠핑장 추가</button>
+      <div class="mb-3">
+        <label class="form-label" for="image">이미지 URL</label>
+        <input
+          class="form-control"
+          type="text"
+          id="image"
+          name="campground[image]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">캠핑장 가격(1박)</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">&#8361;</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="campground[price]"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">설명</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success">추가하기</button>
+      </div>
     </form>
-    <a href="/campgrounds">모든 캠핑장 보기</a>
-  </body>
-</html>
+    <a href="/campgrounds">목록으로 돌아가기</a>
+  </div>
+</div>

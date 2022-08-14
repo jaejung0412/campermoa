@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const engine = require("ejs-mate");
+const ejsMate = require("ejs-mate");
 const port = 3000;
 const methodOverride = require("method-override");
 const Campground = require("./models/campground");
@@ -15,11 +15,12 @@ mongoose.connect("mongodb://localhost:27017/campermoa", {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-  console.log("Database connected");
+  console.log("데이터베이스 연결됨");
 });
 
 const app = express();
 
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
