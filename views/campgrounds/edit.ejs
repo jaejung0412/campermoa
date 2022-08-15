@@ -3,7 +3,12 @@
 <div class="row">
   <h1 class="text-center">캠핑장 수정</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+    <form
+      action="/campgrounds/<%=campground._id%>?_method=PUT"
+      method="POST"
+      novalidate
+      class="validated-form"
+    >
       <div class="mb-3">
         <label class="form-label" for="title">이름</label>
         <input
@@ -12,7 +17,9 @@
           id="title"
           name="campground[title]"
           value="<%=campground.title %>"
+          required
         />
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="location">위치</label>
@@ -22,7 +29,9 @@
           id="location"
           name="campground[location]"
           value="<%=campground.location %>"
+          required
         />
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="image">이미지 URL</label>
@@ -32,7 +41,9 @@
           id="image"
           name="campground[image]"
           value="<%=campground.image %>"
+          required
         />
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="price">캠핑장 가격(1박)</label>
@@ -47,7 +58,9 @@
             aria-describedby="price-label"
             name="campground[price]"
             value="<%=campground.price %>"
+            required
           />
+          <div class="invalid-feedback">필수 입력 항목입니다.</div>
         </div>
       </div>
       <div class="mb-3">
@@ -57,9 +70,11 @@
           type="text"
           id="description"
           name="campground[description]"
+          required
         >
 <%=campground.description %></textarea
         >
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
         <button class="btn btn-info">저장하기</button>
