@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate')%>
+
+<h1>로그인</h1>
+<form action="/login" method="POST" class="validated-form" novalidate>
+  <div class="mb-3">
+    <label class="form-label" for="username">ID</label>
+    <input
+      class="form-control"
+      type="text"
+      id="username"
+      name="username"
+      required
+    />
+    <div class="invalid-feedback">필수 입력 항목입니다.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="password">비밀번호</label>
+    <input
+      class="form-control"
+      type="password"
+      id="password"
+      name="password"
+      required
+    />
+    <div class="invalid-feedback">필수 입력 항목입니다.</div>
+  </div>
+  <button class="btn btn-success">로그인</button>
+</form>
