@@ -10,11 +10,14 @@ module.exports.renderNewForm = (req, res) => {
 };
 
 module.exports.createCampground = async (req, res, next) => {
-  // if (!req.body.campground)
-  //   throw new ExpressError("잘못된 캠핑장 데이터입니다", 400);
   const campground = new Campground(req.body.campground);
+  campground.images = req.files.map((f) => ({
+    url: f.path,
+    filename: f.filename,
+  }));
   campground.author = req.user._id;
   await campground.save();
+  console.log(campground);
   req.flash("success", "새 캠핑장을 정상적으로 등록했습니다.");
   res.redirect(`/campgrounds/${campground._id}`);
 };
