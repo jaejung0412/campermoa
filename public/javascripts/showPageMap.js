@@ -15,3 +15,6 @@ new mapboxgl.Marker()
     )
   )
   .addTo(map);
+
+//맵 컨트롤러 추가
+map.addControl(new mapboxgl.NavigationControl());
