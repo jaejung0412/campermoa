@@ -10,7 +10,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
