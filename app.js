@@ -20,8 +20,7 @@ const MongoDBStore = require("connect-mongo");
 //(session) 제거
 
 const dbUrl =
-  //   "mongodb+srv://ahiru:K4VJnj41FLW2v9Dv@cluster0.cg0x7ue.mongodb.net/?retryWrites=true&w=majority";
-  //  ||
+  "mongodb+srv://ahiru:K4VJnj41FLW2v9Dv@cluster0.cg0x7ue.mongodb.net/?retryWrites=true&w=majority" ||
   "mongodb://localhost:27017/campermoa";
 
 mongoose.connect(dbUrl, {
