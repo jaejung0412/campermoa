@@ -1,4 +1,5 @@
 const mapToken =
+  process.env.MAPBOX_TOKEN ||
   "pk.eyJ1IjoiamFlanVuZzA0MTIiLCJhIjoiY2w2eGF3NWIxMnEybjNsb2Rwd2Yydm9hMSJ9.GB1bK9hEaowDnZPwF-psrw";
 
 mapboxgl.accessToken = mapToken;
