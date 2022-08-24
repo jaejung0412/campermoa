@@ -1,10 +1,14 @@
 <% layout('layouts/boilerplate')%>
 <div class="row">
   <h1 class="text-center">새 캠핑장 추가</h1>
-  <div class="col-md-6 offset-md-3">
-    <!-- <div class="card shadow">
-  <div class="card-body"> -->
-    <form action="/campgrounds" method="POST" novalidate class="validated-form">
+  <div class="col-6 offset-md-3">
+    <form
+      action="/campgrounds"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
       <div class="mb-3">
         <label class="form-label" for="title">이름</label>
         <input
@@ -27,7 +31,9 @@
         />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
-      <div class="mb-3">
+
+      <!-- <div class="mb-3">
+        <input type="file" name="image" id="" multiple />
         <label class="form-label" for="image">이미지 URL</label>
         <input
           class="form-control"
@@ -37,7 +43,7 @@
           required
         />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
-      </div>
+      </div> -->
       <div class="mb-3">
         <label class="form-label" for="price">캠핑장 가격(1박)</label>
         <div class="input-group">
@@ -64,6 +70,17 @@
           name="campground[description]"
           required
         ></textarea>
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">이미지 선택하기</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          name="image"
+          multiple
+        />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
