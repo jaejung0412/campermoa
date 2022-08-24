@@ -23,10 +23,9 @@ const seedDB = async () => {
     const random1000 = Math.floor(Math.random() * 1000);
     const price = Math.floor(Math.random() * 150) * 1000;
     const camp = new Campground({
-      author: "62fb6aeaa1370f6b36948481",
+      author: "62fba041d98cf31224e68bf1",
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
       title: `${sample(descriptors)} ${sample(places)}`,
-      image: "https://source.unsplash.com/collection/483251",
       geometry: {
         type: "Point",
         coordinates: [
@@ -34,9 +33,22 @@ const seedDB = async () => {
           cities[random1000].latitude,
         ],
       },
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!",
+      description: "좋아요",
       price,
+      images: [
+        {
+          url: "https://res.cloudinary.com/dcij2hiq0/image/upload/v1661261909/Campermoa/ksptadhu9rw0v454ndkz.jpg",
+          filename: "Campermoa/ksptadhu9rw0v454ndkz",
+        },
+        {
+          url: "https://res.cloudinary.com/dcij2hiq0/image/upload/v1661261911/Campermoa/ogrn1qckjycdhnvgl4jy.jpg",
+          filename: "Campermoa/ogrn1qckjycdhnvgl4jy",
+        },
+        {
+          url: "https://res.cloudinary.com/dcij2hiq0/image/upload/v1661261913/Campermoa/vu6z6tmtw21da3s13z24.jpg",
+          filename: "Campermoa/vu6z6tmtw21da3s13z24",
+        },
+      ],
     });
     await camp.save();
   }

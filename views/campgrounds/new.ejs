@@ -4,7 +4,13 @@
   <div class="col-md-6 offset-md-3">
     <!-- <div class="card shadow">
   <div class="card-body"> -->
-    <form action="/campgrounds" method="POST" novalidate class="validated-form">
+    <form
+      action="/campgrounds"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
       <div class="mb-3">
         <label class="form-label" for="title">이름</label>
         <input
@@ -23,17 +29,6 @@
           type="text"
           id="location"
           name="campground[location]"
-          required
-        />
-        <div class="invalid-feedback">필수 입력 항목입니다.</div>
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="image">이미지 URL</label>
-        <input
-          class="form-control"
-          type="text"
-          id="image"
-          name="campground[image]"
           required
         />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
@@ -64,6 +59,17 @@
           name="campground[description]"
           required
         ></textarea>
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">이미지 선택하기</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          name="image"
+          multiple
+        />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
