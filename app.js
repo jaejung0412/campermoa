@@ -14,13 +14,20 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
 
-mongoose.connect("mongodb://localhost:27017/campermoa", {
+const MongoDBStore = require("connect-mongo");
+//(session) 제거
+
+const dbUrl =
+  "mongodb+srv://ahiru:K4VJnj41FLW2v9Dv@cluster0.cg0x7ue.mongodb.net/?retryWrites=true&w=majority" ||
+  "mongodb://localhost:27017/campermoa";
+
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   // useCreateIndex: true, -> 몽구스 6버전 이상 지원하지 않음.
   useUnifiedTopology: true,
@@ -43,8 +50,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
+const secret = "thisshouldbeabettersecret!";
+
+const store = MongoDBStore.create({
+  // new MongoDBstore 아님
+  mongoUrl: dbUrl,
+  secret,
+  touchAfter: 24 * 60 * 60,
+});
+
+store.on("error", function (e) {
+  console.log("SESSION STORE ERROR", e);
+});
+
 const sessionConfig = {
-  secret: "thisshouldbeabettersecret!",
+  store,
+  name: "session",
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {

@@ -26,6 +26,14 @@ const seedDB = async () => {
       author: "62fba041d98cf31224e68bf1",
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
       title: `${sample(descriptors)} ${sample(places)}`,
+      image: "https://source.unsplash.com/collection/483251",
+      geometry: {
+        type: "Point",
+        coordinates: [
+          cities[random1000].longitude,
+          cities[random1000].latitude,
+        ],
+      },
       description: "좋은 곳",
       price,
       images: [
