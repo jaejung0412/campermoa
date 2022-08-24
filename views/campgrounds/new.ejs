@@ -31,18 +31,19 @@
         />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
-      <div class="mb-3">
+
+      <!-- <div class="mb-3">
         <input type="file" name="image" id="" multiple />
-        <!-- <label class="form-label" for="image">이미지 URL</label>
+        <label class="form-label" for="image">이미지 URL</label>
         <input
           class="form-control"
           type="text"
           id="image"
           name="campground[image]"
           required
-        /> -->
+        />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
-      </div>
+      </div> -->
       <div class="mb-3">
         <label class="form-label" for="price">캠핑장 가격(1박)</label>
         <div class="input-group">
@@ -69,6 +70,17 @@
           name="campground[description]"
           required
         ></textarea>
+        <div class="invalid-feedback">필수 입력 항목입니다.</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">이미지 선택하기</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          name="image"
+          multiple
+        />
         <div class="invalid-feedback">필수 입력 항목입니다.</div>
       </div>
       <div class="mb-3">
